@@ -95,6 +95,7 @@
 		9079653929242D280035AE7B /* Tourist News */ = {
 			isa = PBXGroup;
 			children = (
+				9079656529242DA10035AE7B /* Home */,
 				9079653A29242D280035AE7B /* Tourist_NewsApp.swift */,
 				9079653C29242D280035AE7B /* ContentView.swift */,
 				9079653E29242D290035AE7B /* Assets.xcassets */,
@@ -127,6 +128,13 @@
 				9079655829242D290035AE7B /* Tourist_NewsUITestsLaunchTests.swift */,
 			);
 			path = "Tourist NewsUITests";
+			sourceTree = "<group>";
+		};
+		9079656529242DA10035AE7B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
