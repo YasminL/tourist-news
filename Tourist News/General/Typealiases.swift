@@ -1,0 +1,1 @@
+typealias Headers = [String: String]
