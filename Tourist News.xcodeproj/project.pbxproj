@@ -30,6 +30,9 @@
 		9079658F29246F120035AE7B /* TemporaryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079658E29246F120035AE7B /* TemporaryImageCache.swift */; };
 		9079659129246F480035AE7B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079659029246F480035AE7B /* AsyncImage.swift */; };
 		9079659329246FB40035AE7B /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079659229246FB40035AE7B /* EnvironmentValues.swift */; };
+		907965972924893C0035AE7B /* TouristListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907965962924893C0035AE7B /* TouristListView.swift */; };
+		90796599292489510035AE7B /* TouristListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90796598292489510035AE7B /* TouristListViewModel.swift */; };
+		9079659B292489730035AE7B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079659A292489730035AE7B /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		9079658E29246F120035AE7B /* TemporaryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryImageCache.swift; sourceTree = "<group>"; };
 		9079659029246F480035AE7B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
 		9079659229246FB40035AE7B /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
+		907965962924893C0035AE7B /* TouristListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristListView.swift; sourceTree = "<group>"; };
+		90796598292489510035AE7B /* TouristListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouristListViewModel.swift; sourceTree = "<group>"; };
+		9079659A292489730035AE7B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,7 +175,9 @@
 		9079656529242DA10035AE7B /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				907965942924884E0035AE7B /* News Feed */,
+				90796595292489220035AE7B /* Tourist list */,
+				907965942924884E0035AE7B /* News feed */,
+				9079659A292489730035AE7B /* HomeView.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -265,14 +273,23 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		907965942924884E0035AE7B /* News Feed */ = {
+		907965942924884E0035AE7B /* News feed */ = {
 			isa = PBXGroup;
 			children = (
 				90796584292461540035AE7B /* NewsFeedCell */,
 				9079653C29242D280035AE7B /* NewsFeedView.swift */,
 				9079657B29243CC10035AE7B /* NewsFeedViewModel.swift */,
 			);
-			path = "News Feed";
+			path = "News feed";
+			sourceTree = "<group>";
+		};
+		90796595292489220035AE7B /* Tourist list */ = {
+			isa = PBXGroup;
+			children = (
+				907965962924893C0035AE7B /* TouristListView.swift */,
+				90796598292489510035AE7B /* TouristListViewModel.swift */,
+			);
+			path = "Tourist list";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,15 +430,18 @@
 				9079657C29243CC10035AE7B /* NewsFeedViewModel.swift in Sources */,
 				9079656B29242E740035AE7B /* News.swift in Sources */,
 				9079656D29242F6D0035AE7B /* APIError.swift in Sources */,
+				907965972924893C0035AE7B /* TouristListView.swift in Sources */,
 				907965762924331C0035AE7B /* Typealiases.swift in Sources */,
 				90796573292430830035AE7B /* APIMethod.swift in Sources */,
 				9079658F29246F120035AE7B /* TemporaryImageCache.swift in Sources */,
 				9079653B29242D280035AE7B /* Tourist_NewsApp.swift in Sources */,
 				9079659329246FB40035AE7B /* EnvironmentValues.swift in Sources */,
+				9079659B292489730035AE7B /* HomeView.swift in Sources */,
 				907965862924615F0035AE7B /* NewsFeedCellViewModel.swift in Sources */,
 				9079659129246F480035AE7B /* AsyncImage.swift in Sources */,
 				90796588292463540035AE7B /* HomeCellView.swift in Sources */,
 				9079658D29246EB50035AE7B /* ImageLoader.swift in Sources */,
+				90796599292489510035AE7B /* TouristListViewModel.swift in Sources */,
 				9079656F29242FAB0035AE7B /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
