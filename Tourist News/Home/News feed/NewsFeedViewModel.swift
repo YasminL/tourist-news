@@ -1,7 +1,7 @@
 import Combine
 
 class NewsFeedViewModel: ObservableObject {
-  @Published private(set) var title: String = "Tourist News"
+  private(set) var title: String = "News"
   @Published private(set) var cellViewModels: [NewsFeedCellViewModel] = []
   
   private let apiService: APIService

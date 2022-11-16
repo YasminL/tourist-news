@@ -2,12 +2,7 @@ import SwiftUI
 
 struct HomeView: View {
   let newsFeedViewModel: NewsFeedViewModel
-  
-  init(newsFeedViewModel: NewsFeedViewModel) {
-    self.newsFeedViewModel = newsFeedViewModel
-    
-    UITabBar.appearance().barTintColor = .white
-  }
+  let touristsViewModel: TouristsViewModel
   
   var body: some View {
     TabView {
@@ -15,7 +10,7 @@ struct HomeView: View {
         .tabItem {
           Label("News", systemImage: "house")
         }
-      TouristListView()
+      TouristsView(viewModel: touristsViewModel)
         .tabItem {
           Label("Tourists", systemImage: "person")
         }
@@ -26,6 +21,10 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeView(newsFeedViewModel: NewsFeedViewModel(apiService: APIPreviewClient()))
+    let apiService: APIService = APIClient()
+    let newsFeedViewModel = NewsFeedViewModel(apiService: apiService)
+    let touristViewModel = TouristsViewModel(apiService: apiService)
+    return HomeView(newsFeedViewModel: newsFeedViewModel,
+                    touristsViewModel: touristViewModel)
   }
 }

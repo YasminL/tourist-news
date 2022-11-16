@@ -2,17 +2,28 @@ import Combine
 import Foundation
 
 class APIPreviewClient: APIService {
+  enum Resourse: String {
+    case news
+    case tourists
+  }
+  
   func fetchNews() -> AnyPublisher<NewsList, APIError> {
-    Just(stubData(resource: "home-news"))
+    Just(stubData(resource: .news))
       .setFailureType(to: APIError.self)
       .eraseToAnyPublisher()
   }
   
-  private func stubData<T: Decodable>(resource: String) -> T {
+  func fetchTourists(page: String) -> AnyPublisher<Tourists, APIError> {
+    Just(stubData(resource: .tourists))
+      .setFailureType(to: APIError.self)
+      .eraseToAnyPublisher()
+  }
+  
+  private func stubData<T: Decodable>(resource: Resourse) -> T {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     
-    guard let url = Bundle.main.url(forResource: resource, withExtension: "json") else {
+    guard let url = Bundle.main.url(forResource: resource.rawValue, withExtension: "json") else {
       fatalError("Could not find url")
     }
     

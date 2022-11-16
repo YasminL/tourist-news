@@ -6,6 +6,10 @@ struct APIClient: APIService {
     request(.fetchNews)
   }
   
+  func fetchTourists(page: String) -> AnyPublisher<Tourists, APIError> {
+    request(.fetchTourists(page: page))
+  }
+  
   private func request<T: Decodable>(_ endpoint: APIEndpoint) -> AnyPublisher<T, APIError> {
     do {
       let request = try endpoint.request()
