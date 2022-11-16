@@ -6,6 +6,11 @@ struct HomeCellView: View {
   
   var body: some View {
     HStack {
+      if let url = viewModel.imageURL {
+        AsyncImage(url: url, placeHolder: {
+          Text("placeholder")
+        })
+      }
       VStack(alignment: .leading) {
         if let title = viewModel.title {
           Text(title.capitalized)

@@ -1,3 +1,5 @@
+import Foundation
+
 struct HomeCellViewModel: Identifiable {
   
   private let news: News
@@ -20,5 +22,10 @@ struct HomeCellViewModel: Identifiable {
   
   var location: String {
     news.location
+  }
+  
+  var imageURL: URL? {
+    guard let firstMultimedia = news.multiMedia?.first else { return nil }
+    return URL(string: firstMultimedia.url)
   }
 }

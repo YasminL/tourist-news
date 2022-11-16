@@ -26,6 +26,10 @@
 		907965862924615F0035AE7B /* HomeCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907965852924615F0035AE7B /* HomeCellViewModel.swift */; };
 		90796588292463540035AE7B /* HomeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90796587292463540035AE7B /* HomeCellView.swift */; };
 		90796589292469DD0035AE7B /* home-news.json in Resources */ = {isa = PBXBuildFile; fileRef = 90796580292442DF0035AE7B /* home-news.json */; };
+		9079658D29246EB50035AE7B /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079658C29246EB50035AE7B /* ImageLoader.swift */; };
+		9079658F29246F120035AE7B /* TemporaryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079658E29246F120035AE7B /* TemporaryImageCache.swift */; };
+		9079659129246F480035AE7B /* AsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079659029246F480035AE7B /* AsyncImage.swift */; };
+		9079659329246FB40035AE7B /* EnvironmentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9079659229246FB40035AE7B /* EnvironmentValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +74,10 @@
 		9079658129245B5B0035AE7B /* Tourist-News-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Tourist-News-Info.plist"; sourceTree = SOURCE_ROOT; };
 		907965852924615F0035AE7B /* HomeCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellViewModel.swift; sourceTree = "<group>"; };
 		90796587292463540035AE7B /* HomeCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCellView.swift; sourceTree = "<group>"; };
+		9079658C29246EB50035AE7B /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		9079658E29246F120035AE7B /* TemporaryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryImageCache.swift; sourceTree = "<group>"; };
+		9079659029246F480035AE7B /* AsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImage.swift; sourceTree = "<group>"; };
+		9079659229246FB40035AE7B /* EnvironmentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 		9079656629242E1A0035AE7B /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9079658B29246EA00035AE7B /* Image */,
 				9079656E29242FAB0035AE7B /* APIClient.swift */,
 				9079657D29243FE20035AE7B /* APIPreviewClient.swift */,
 				9079656929242E6B0035AE7B /* Models */,
@@ -192,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				907965752924331C0035AE7B /* Typealiases.swift */,
+				9079659229246FB40035AE7B /* EnvironmentValues.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -245,6 +255,16 @@
 				90796587292463540035AE7B /* HomeCellView.swift */,
 			);
 			path = HomeCell;
+			sourceTree = "<group>";
+		};
+		9079658B29246EA00035AE7B /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				9079658C29246EB50035AE7B /* ImageLoader.swift */,
+				9079658E29246F120035AE7B /* TemporaryImageCache.swift */,
+				9079659029246F480035AE7B /* AsyncImage.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,9 +407,13 @@
 				9079656D29242F6D0035AE7B /* APIError.swift in Sources */,
 				907965762924331C0035AE7B /* Typealiases.swift in Sources */,
 				90796573292430830035AE7B /* APIMethod.swift in Sources */,
+				9079658F29246F120035AE7B /* TemporaryImageCache.swift in Sources */,
 				9079653B29242D280035AE7B /* Tourist_NewsApp.swift in Sources */,
+				9079659329246FB40035AE7B /* EnvironmentValues.swift in Sources */,
 				907965862924615F0035AE7B /* HomeCellViewModel.swift in Sources */,
+				9079659129246F480035AE7B /* AsyncImage.swift in Sources */,
 				90796588292463540035AE7B /* HomeCellView.swift in Sources */,
+				9079658D29246EB50035AE7B /* ImageLoader.swift in Sources */,
 				9079656F29242FAB0035AE7B /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
