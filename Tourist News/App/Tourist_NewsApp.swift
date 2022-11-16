@@ -5,7 +5,7 @@ struct Tourist_NewsApp: App {
   let apiService: APIService = APIClient()
   var body: some Scene {
     WindowGroup {
-      HomeView(newsFeedViewModel: NewsFeedViewModel(apiService: apiService),
+      HomeView(newsFeedViewModel: NewsViewModel(apiService: apiService),
                touristsViewModel: TouristsViewModel(apiService: apiService))
     }
   }

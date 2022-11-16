@@ -1,6 +1,6 @@
 import Foundation
 
-struct NewsFeedCellViewModel: Identifiable {
+struct NewsCellViewModel: Identifiable {
   private let news: News
   
   init(news: News) {

@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct HomeCellView: View {
-  let viewModel: NewsFeedCellViewModel
+struct NewsCellView: View {
+  let viewModel: NewsCellViewModel
   
   var body: some View {
     VStack {
@@ -44,6 +44,6 @@ struct HomeCellView: View {
 
 struct HomeCellView_Previews: PreviewProvider {
   static var previews: some View {
-    HomeCellView(viewModel: NewsFeedViewModel.preview)
+    NewsCellView(viewModel: NewsViewModel.preview)
   }
 }

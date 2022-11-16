@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct HomeView: View {
-  let newsFeedViewModel: NewsFeedViewModel
+  let newsFeedViewModel: NewsViewModel
   let touristsViewModel: TouristsViewModel
   
   var body: some View {
     TabView {
-      NewsFeedView(viewModel: newsFeedViewModel)
+      NewsView(viewModel: newsFeedViewModel)
         .tabItem {
           Label("News", systemImage: "house")
         }
@@ -22,7 +22,7 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
   static var previews: some View {
     let apiService: APIService = APIClient()
-    let newsFeedViewModel = NewsFeedViewModel(apiService: apiService)
+    let newsFeedViewModel = NewsViewModel(apiService: apiService)
     let touristViewModel = TouristsViewModel(apiService: apiService)
     return HomeView(newsFeedViewModel: newsFeedViewModel,
                     touristsViewModel: touristViewModel)
