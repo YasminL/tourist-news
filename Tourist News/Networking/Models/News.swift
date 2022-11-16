@@ -9,6 +9,9 @@ struct News: Decodable {
   let location: String
   
   static var `default`: Self {
-    Self(id: 123, title: "", description: "", location: "")
+    Self(id: 123,
+         title: "LOVE SHIMLA",
+         description: "shimla",
+         location: "Shimla, Himachal Pradesh, India")
   }
 }

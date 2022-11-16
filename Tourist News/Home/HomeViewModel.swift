@@ -2,8 +2,7 @@ import Combine
 
 class HomeViewModel: ObservableObject {
   @Published private(set) var title: String = "Tourist News"
-  
-  @Published private(set) var news: [News] = []
+  @Published private(set) var homeCellViewModels: [HomeCellViewModel] = []
   
   private let apiService: APIService
   private var subscription: Set<AnyCancellable> = []
@@ -17,16 +16,16 @@ class HomeViewModel: ObservableObject {
   func fetchHome() {
     apiService
       .fetchNews()
-      .sink { completion in
-        switch completion {
-        case .finished:
-          break
-        case .failure(let error):
-          print("fetchHome() Failed to fetch with error: \(error)")
-        }
+      .sink { _ in
       } receiveValue: { [weak self] newsList in
-        self?.news = newsList.data
+        self?.homeCellViewModels = newsList.data.compactMap(HomeCellViewModel.init)
       }
       .store(in: &subscription)
+  }
+}
+
+extension HomeViewModel {
+  static var preview: HomeCellViewModel {
+    HomeCellViewModel(news: News.default)
   }
 }

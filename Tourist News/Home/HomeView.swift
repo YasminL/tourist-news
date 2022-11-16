@@ -4,16 +4,24 @@ struct HomeView: View {
   
   @ObservedObject var viewModel: HomeViewModel
   
-    var body: some View {
-        VStack {
-          Text(viewModel.title)
+  var body: some View {
+    NavigationView {
+      ScrollView {
+        LazyVGrid(columns: [GridItem()], spacing: 20.0) {
+          ForEach(viewModel.homeCellViewModels) { cellViewModel in
+            HomeCellView(viewModel: cellViewModel)
+          }
         }
-        .padding()
+      }
+      .padding()
+      .navigationTitle(viewModel.title)
     }
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-      HomeView(viewModel: HomeViewModel(apiService: APIPreviewClient()))
-    }
+  static var previews: some View {
+    let apiService: APIService = APIPreviewClient()
+    return HomeView(viewModel: HomeViewModel(apiService: apiService))
+  }
 }
