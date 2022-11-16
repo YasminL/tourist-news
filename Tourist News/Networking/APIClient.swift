@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 struct APIClient: APIService {
-  func fetchNews() -> AnyPublisher<[News], APIError> {
+  func fetchNews() -> AnyPublisher<NewsList, APIError> {
     request(.fetchNews)
   }
   
