@@ -11,7 +11,7 @@ import SwiftUI
 struct Tourist_NewsApp: App {
     var body: some Scene {
         WindowGroup {
-            HomeView(viewModel: HomeViewModel(apiService: APIClient()))
+            NewsFeedView(viewModel: NewsFeedViewModel(apiService: APIClient()))
         }
     }
 }

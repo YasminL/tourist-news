@@ -1,8 +1,8 @@
 import Combine
 
-class HomeViewModel: ObservableObject {
+class NewsFeedViewModel: ObservableObject {
   @Published private(set) var title: String = "Tourist News"
-  @Published private(set) var homeCellViewModels: [HomeCellViewModel] = []
+  @Published private(set) var cellViewModels: [NewsFeedCellViewModel] = []
   
   private let apiService: APIService
   private var subscription: Set<AnyCancellable> = []
@@ -18,14 +18,14 @@ class HomeViewModel: ObservableObject {
       .fetchNews()
       .sink { _ in
       } receiveValue: { [weak self] newsList in
-        self?.homeCellViewModels = newsList.data.compactMap(HomeCellViewModel.init)
+        self?.cellViewModels = newsList.data.compactMap(NewsFeedCellViewModel.init)
       }
       .store(in: &subscription)
   }
 }
 
-extension HomeViewModel {
-  static var preview: HomeCellViewModel {
-    HomeCellViewModel(news: News.default)
+extension NewsFeedViewModel {
+  static var preview: NewsFeedCellViewModel {
+    NewsFeedCellViewModel(news: News.default)
   }
 }

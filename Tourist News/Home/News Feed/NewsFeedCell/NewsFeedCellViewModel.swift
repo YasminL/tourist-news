@@ -1,7 +1,6 @@
 import Foundation
 
-struct HomeCellViewModel: Identifiable {
-  
+struct NewsFeedCellViewModel: Identifiable {
   private let news: News
   
   init(news: News) {
@@ -12,12 +11,12 @@ struct HomeCellViewModel: Identifiable {
     news.id
   }
   
-  var title: String? {
-    news.title
+  var title: String {
+    news.title ?? "Default title"
   }
   
-  var description: String? {
-    news.description
+  var description: String {
+    news.description ?? "Default description"
   }
   
   var location: String {
@@ -27,5 +26,9 @@ struct HomeCellViewModel: Identifiable {
   var imageURL: URL? {
     guard let firstMultimedia = news.multiMedia?.first else { return nil }
     return URL(string: firstMultimedia.url)
+  }
+  
+  var imagePlaceholderName: String {
+    "home-news-default-image"
   }
 }

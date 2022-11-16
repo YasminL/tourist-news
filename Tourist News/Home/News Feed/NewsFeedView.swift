@@ -1,14 +1,14 @@
 import SwiftUI
 
-struct HomeView: View {
+struct NewsFeedView: View {
   
-  @ObservedObject var viewModel: HomeViewModel
+  @ObservedObject var viewModel: NewsFeedViewModel
   
   var body: some View {
     NavigationView {
-      ScrollView {
+      ScrollView(showsIndicators: false) {
         LazyVGrid(columns: [GridItem()], spacing: 20.0) {
-          ForEach(viewModel.homeCellViewModels) { cellViewModel in
+          ForEach(viewModel.cellViewModels) { cellViewModel in
             HomeCellView(viewModel: cellViewModel)
           }
         }
@@ -22,6 +22,6 @@ struct HomeView: View {
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
     let apiService: APIService = APIPreviewClient()
-    return HomeView(viewModel: HomeViewModel(apiService: apiService))
+    return NewsFeedView(viewModel: NewsFeedViewModel(apiService: apiService))
   }
 }
