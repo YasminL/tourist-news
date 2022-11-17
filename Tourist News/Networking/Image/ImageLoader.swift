@@ -1,15 +1,15 @@
 import Combine
-import Foundation
 import SwiftUI
 
-class ImageLoader: ObservableObject {
-  @Published var image: UIImage?
+final class ImageLoader: ObservableObject {
+  @Published private(set) var image: UIImage?
+  
   private let url: URL
-  private var subscription: AnyCancellable?
   private var cache: ImageCache?
   
-  private(set) var isLoading = false
+  private var isLoading = false
   private static let imageProcessingQueue = DispatchQueue(label: "image-processing")
+  private var subscription : AnyCancellable?
   
   init(url: URL, cache: ImageCache?) {
     self.url = url
@@ -23,12 +23,14 @@ class ImageLoader: ObservableObject {
   func load() {
     guard !isLoading else { return }
     
-    if let image = cache?[url] {
-      self.image = image
+    if let cachedImage = cache?[url] {
+      self.image = cachedImage
       return
     }
     
-    subscription = URLSession.shared.dataTaskPublisher(for: url)
+    subscription = URLSession
+      .shared
+      .dataTaskPublisher(for: url)
       .map { UIImage(data: $0.data) }
       .replaceError(with: nil)
       .handleEvents(receiveSubscription: { [weak self] _ in self?.onStart() },
@@ -38,6 +40,10 @@ class ImageLoader: ObservableObject {
       .subscribe(on: Self.imageProcessingQueue)
       .receive(on: DispatchQueue.main)
       .sink { [weak self] in self?.image = $0 }
+  }
+  
+  private func cancel() {
+    subscription?.cancel()
   }
   
   private func cache(_ image: UIImage?) {
@@ -51,9 +57,4 @@ class ImageLoader: ObservableObject {
   private func onFinish() {
     isLoading = false
   }
-  
-  private func cancel() {
-    subscription?.cancel()
-  }
 }
-
