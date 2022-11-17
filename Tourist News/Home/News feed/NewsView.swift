@@ -9,6 +9,13 @@ struct NewsView: View {
         LazyVGrid(columns: [GridItem()], spacing: 20.0) {
           ForEach(viewModel.cellViewModels) { cellViewModel in
             NewsCellView(viewModel: cellViewModel)
+              .onAppear {
+                viewModel.fetchMoreNewsIfNeeded(cellViewModel: cellViewModel)
+              }
+          }
+          
+          if viewModel.isLoadingPage {
+            ProgressView()
           }
         }
       }

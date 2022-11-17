@@ -1,4 +1,6 @@
 struct Tourists: Decodable {
+  let page: Int
+  let totalPages: Int
   let data: [Tourist]
 }
 

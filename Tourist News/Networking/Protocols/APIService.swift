@@ -1,6 +1,6 @@
 import Combine
 
 protocol APIService {
-  func fetchNews() -> AnyPublisher<NewsList, APIError>
-  func fetchTourists(page: String) -> AnyPublisher<Tourists, APIError>
+  func fetchNews(page: Int) -> AnyPublisher<NewsList, APIError>
+  func fetchTourists(page: Int) -> AnyPublisher<Tourists, APIError>
 }

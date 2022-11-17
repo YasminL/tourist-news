@@ -1,6 +1,8 @@
 import Foundation
 
 struct NewsList: Decodable {
+  let page: Int
+  let totalPages: Int
   let data: [News]
 }
 

@@ -7,13 +7,13 @@ class APIPreviewClient: APIService {
     case tourists
   }
   
-  func fetchNews() -> AnyPublisher<NewsList, APIError> {
+  func fetchNews(page: Int) -> AnyPublisher<NewsList, APIError> {
     Just(stubData(resource: .news))
       .setFailureType(to: APIError.self)
       .eraseToAnyPublisher()
   }
   
-  func fetchTourists(page: String) -> AnyPublisher<Tourists, APIError> {
+  func fetchTourists(page: Int) -> AnyPublisher<Tourists, APIError> {
     Just(stubData(resource: .tourists))
       .setFailureType(to: APIError.self)
       .eraseToAnyPublisher()

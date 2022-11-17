@@ -1,8 +1,8 @@
 import Foundation
 
 enum APIEndpoint {
-  case fetchNews
-  case fetchTourists(page: String)
+  case fetchNews(page: Int)
+  case fetchTourists(page: Int)
   
   func request() throws -> URLRequest {
     guard var url = url else { throw APIError.invalidURL }
@@ -33,17 +33,19 @@ enum APIEndpoint {
   
   private var method: APIMethod {
     switch self {
-    case .fetchNews, .fetchTourists:
+    case
+        .fetchNews,
+        .fetchTourists:
       return .GET
     }
   }
   
   private var queryItems: [URLQueryItem] {
     switch self {
-    case .fetchNews:
-      return []
-    case .fetchTourists(let page):
-      return [URLQueryItem(name: "page", value: page)]
+    case
+        .fetchNews(let page),
+        .fetchTourists(let page):
+      return [URLQueryItem(name: "page", value: "\(page)")]
     }
   }
   
